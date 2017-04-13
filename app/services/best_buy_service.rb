@@ -8,15 +8,14 @@ class BestBuyService
   end
 
   def nearest_stores(zip)
-    # response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV["key"]}")
-    # parse(response)
-    # binding.pry
-    parse(connection.get("(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV["key"]}"))
+    response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV["key"]}")
+    JSON.parse(response.body, symbolize_names: true)
+    # parse(connection.get("((area(#{zip},25)))?format=json&show=longName,city,distance,phone,storeType)&apiKey=#{ENV["key"]}"))
   end
 
   private
 
-  def parse(response)
-    JSON.parse(response.body, symbolize_names: true)
-  end
+  # def parse(response)
+  #   JSON.parse(response.body, symbolize_names: true)
+  # end
 end
