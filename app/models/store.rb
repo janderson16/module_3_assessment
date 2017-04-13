@@ -19,4 +19,8 @@ class Store
       Store.new(store)
     end
   end
+
+  def self.total_stores(zip)
+    stores = BestBuyService.new.nearest_stores(zip)[:total]
+  end
 end

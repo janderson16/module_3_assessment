@@ -1,6 +1,7 @@
 <div class="container">
 
 <h1>Stores Near You</h1><br>
+<h3> <%= @total %> Total Stores </h3><br>
 <% @stores.each do |store| %>
 Store Name: <%= store.name %><br>
 Store City: <%= store.city %><br>
