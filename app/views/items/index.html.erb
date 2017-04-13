@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_tag :search, method: :get %>
+  <%= form_tag :search, method: :get do %>
   <%= text_field_tag :q, "Search by zip" %>
   <%= submit_tag "search" %>
   <% end %>
