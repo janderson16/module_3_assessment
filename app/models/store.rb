@@ -6,7 +6,6 @@ class Store
               :store_type
 
   def initialize(store_data)
-    # binding.pry
     @name = store_data[:longName]
     @city = store_data[:city]
     @distance = store_data[:distance]
@@ -15,7 +14,7 @@ class Store
   end
 
   def self.nearest_stores(zip)
-    stores = BestBuyService.new.nearest_stores(zip)
+    stores = BestBuyService.new.nearest_stores(zip)[:stores]
     stores.map do |store|
       Store.new(store)
     end
