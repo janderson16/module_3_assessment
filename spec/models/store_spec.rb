@@ -5,6 +5,6 @@ describe Store do
     stores = Store.nearest_stores(80202)
 
     expect(stores.first.class).to eq(Store)
-
+    expect(stores.count).to eq(10)
   end
 end
