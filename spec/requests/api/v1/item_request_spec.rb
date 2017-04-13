@@ -24,6 +24,7 @@ describe "Item API" do
     item_params = { name: "Thing", description: "description", image_url: "image.jpg" }
 
     post "/api/v1/items", params: {item: item_params}
+    binding.pry
     item = Item.last
 
     assert_response :success
