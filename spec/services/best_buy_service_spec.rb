@@ -7,6 +7,8 @@ describe BestBuyService do
   end
 
   it "returns nearest stores" do
-    
+    stores = @service.nearest_stores(80202)
+
+    expect(stores.count).to eq(10)
   end
 end
