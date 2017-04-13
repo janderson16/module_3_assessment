@@ -21,13 +21,21 @@ describe "Item API" do
   end
 
   it "can create an item" do
-    # item_1 = Item.create!(name: "Item 1", description: "Et consequuntur eius velit est. At eveni", image_url: "tuff.jpg")
-    item_params = {name: "Item 1", description: "Et consequuntur eius velit est. At eveni", image_url: "tuff.jpg"}
+    item_params = {name: "New Item", description: "desc", image_url: "image.jpg"}
 
-    post "/api/v1/items/#{item_1.id}" params: item_params
+    post "/api/v1/items/", params: {item: item_params}
+    item = Item.last
 
-    # assert
-    # expect(response).to be_success
+    assert_response :success
 
+  end
+
+  it "can delete an item" do
+    item_1 = Item.create!(name: "Item 1", description: "Et consequuntur eius velit est. At eveni", image_url: "tuff.jpg")
+
+    delete "/api/v1/items/#{item_1.id}"
+
+    expect(response).to be_success
+    expect(Item.count).to eq(0)
   end
 end
