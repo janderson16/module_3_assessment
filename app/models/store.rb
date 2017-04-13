@@ -15,7 +15,7 @@ class Store
   end
 
   def self.nearest_stores(zip)
-    stores = BestBuyService.new(zip)
+    stores = BestBuyService.new.nearest_stores(zip)
     stores.map do |store|
       Store.new(store)
     end
