@@ -3,7 +3,6 @@ class BestBuyService
 
 
   def initialize
-    # @connection = Faraday.new("https://api.bestbuy.com/v1/stores(area(80202,25))?format=json&show=longName,city,distance,phone,storeType&apiKey=8zjkc9r7xng9wvqqjayyeya9")
     @connection = Faraday.new("https://api.bestbuy.com/v1/stores")
     @auth = "&apiKey=#{ENV["key"]}"
   end
