@@ -6,7 +6,7 @@ class Store
               :store_type
 
   def initialize(store_data)
-    binding.pry
+    # binding.pry
     @name = store_data[:longName]
     @city = store_data[:city]
     @distance = store_data[:distance]
