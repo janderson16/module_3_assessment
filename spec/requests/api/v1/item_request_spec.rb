@@ -21,7 +21,7 @@ describe "Item API" do
   end
 
   it "can create an item" do
-    item_params = {name: "New Item", description: "desc", image_url: "image.jpg"}
+    item_params = { name: "Thing", description: "description", image_url: "image.jpg" }
 
     post "/api/v1/items", params: {item: item_params}
     item = Item.last
